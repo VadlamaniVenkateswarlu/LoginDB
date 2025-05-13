@@ -484,7 +484,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Middleware
-app.use(cors());
+
+
+const corsOptions = {
+  origin: [process.env.FRONTEND_URL1,process.env.FRONTEND_URL2],
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/profilePic", express.static("profilePic"));
