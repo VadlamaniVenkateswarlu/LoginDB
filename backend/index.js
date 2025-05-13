@@ -510,7 +510,9 @@ const userSchema = mongoose.Schema({
 });
 const User = mongoose.model("User", userSchema, "User");
 
-
+app.get("/",  (req, res) => {
+  res.send("index")
+})
 // Signup Endpoint
 app.post("/signUp", upload.single("profilePic"), async (req, res) => {
   try {
